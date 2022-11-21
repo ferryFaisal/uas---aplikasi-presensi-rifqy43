@@ -1,30 +1,29 @@
 <?php
-require "../../koneksi.php";
+require "koneksi.php";
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
-
-$nim = test_input($_POST['nim']);
-$nama = test_input($_POST['nama']);
+$tgl_presensi = $_POST['tgl_presensi'];
+$makul = $_POST['makul'];
 $kelas = $_POST['kelas'];
+$nim = $_POST['nim'];
+$nama = $_POST['nama'];
+$status_presensi = $_POST['presensi'];
 
 	
-if(isset($_POST['simpan'])){
-
-	$sql = 
-	"INSERT INTO mahasiswa
-		VALUES('$nim','$nama', '$kelas')";
-	$query = mysqli_query($db, $sql);
+if(isset($_POST['submit'])){
+    $sql = "SELECT * FROM mahasiswa WHERE kelas = '$kelas'";
+    $q_tampil = mysqli_query($db, $sql);
+    while ($r_tampil = mysqli_fetch_array($q_tampil)){
+        $sql = 
+        "INSERT INTO presensi
+            VALUES('$tgl_presensi','$makul', '$kelas', '$nim', '$nama', '$status_presensi)";
+        $query = mysqli_query($db, $sql);
+    }
 
     if ($query === TRUE){
-        echo '<script>alert("User Berhasil Ditambahkan")</script>';
+        echo '<script>alert("Presensi Berhasil Ditambahkan")</script>';
     }else{
-        echo '<script>alert("User Gagal Ditambahkan")</script>';
+        echo '<script>alert("Presensi Gagal Ditambahkan")</script>';
     }
-    echo '<script>window.location="../index.php?p=mahasiswa"</script>';
+    echo '<script>window.location="index.php"</script>';
 }
 ?>

@@ -38,9 +38,9 @@
                 <div class="form-label-group">
                   <select name="makul" id="makul" class="form-control" autofocus="autofocus">
                     <option value=""> -- Pilih Mata Kuliah  -- </option>
-                    <option <?php if($_POST['makul'] == 'WebProg'){echo 'selected';} ?> value="WebProg"> Pemrograman Web </option>
-                    <option <?php if($_POST['makul'] == 'WebProgLab'){echo 'selected';} ?> value="WebProgLab"> Praktik Pemrograman Web </option>
-                    <option <?php if($_POST['makul'] == 'SoftDev'){echo 'selected';} ?> value="SoftDev"> Rekayasa Perangkat Lunak </option>
+                    <option value="WebProg"> Pemrograman Web </option>
+                    <option value="WebProgLab"> Praktik Pemrograman Web </option>
+                    <option value="SoftDev"> Rekayasa Perangkat Lunak </option>
                   </select>
                 </div>
               </div>
@@ -72,7 +72,9 @@
               
 
             ?>
-
+            <input type="date" name="tgl_presensi" value="<?php $_POST['tgl'] ?>" hidden>
+            <input type="text" name="makul" value="<?php $_POST['makul'] ?>" hidden>
+            <input type="text" name="kelas" value="<?php $_POST['kelas'] ?>" hidden>
             <div class="row form-row mb-1">
               <div class="col-md-4">
                 <div class="form-label-group">
