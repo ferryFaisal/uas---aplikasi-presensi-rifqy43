@@ -17,7 +17,7 @@ if(isset($_POST['submit'])){
 
         echo '<script>alert("Login Berhasil")</script>';
 
-        if($r_tampil['role'] == 'admin'){
+        if($r_tampil['role'] == 'dosen'){
             echo '<script>window.location="index.php"</script>';
         }else{
             echo '<script>window.location="admin/index.php"</script>';
