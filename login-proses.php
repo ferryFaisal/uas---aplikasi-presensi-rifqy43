@@ -17,6 +17,11 @@ if(isset($_POST['submit'])){
 
         echo '<script>alert("Login Berhasil")</script>';
 
+        session_start();
+        $_SESSION['role'] = $r_tampil['role'];
+        $_SESSION['email'] = $email;
+        $_SESSION['name'] = $r_tampil['name'];
+
         if($r_tampil['role'] == 'dosen'){
             echo '<script>window.location="index.php"</script>';
         }else{
