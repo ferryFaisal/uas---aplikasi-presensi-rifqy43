@@ -23,6 +23,15 @@
 </head>
 
 <body id="page-top">
+<?php 
+    session_start();
+    if(isset($_SESSION['role'])){
+    
+    }else{
+      echo '<script>alert("Anda belum login, Silahkan login terlebih dahulu")</script>';
+      echo '<script>window.location="../login.php"</script>';
+    }
+  ?>
 
   <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
