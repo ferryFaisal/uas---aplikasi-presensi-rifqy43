@@ -12,14 +12,11 @@ $nim = $_POST['nim'];
 $nama = test_input($_POST['nama']);
 $kelas = $_POST['kelas'];
 
-date_default_timezone_set("Asia/Jakarta");
-$edited = date('Y-m-d H:i:s');
-
 	
 if(isset($_POST['simpan'])){
 
 	$sql = 
-	"UPDATE user
+	"UPDATE mahasiswa
 		SET nama='$nama', kelas='$kelas' WHERE nim='$nim'";
 	$query = mysqli_query($db, $sql);
 
